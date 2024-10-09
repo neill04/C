@@ -5,4 +5,5 @@ struct Node {
   struct Node* next;
 };
 int length(struct Node* head);
+struct Node* buildOneTwoThree();
 #endif
