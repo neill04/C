@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdlib.h>
 #include "list.h"
 int length(struct Node* head){
@@ -20,4 +21,26 @@ struct Node* buildOneTwoThree(){
   head->next->next->next = NULL;
 
   return head;
+}
+
+int count(struct Node* curr, int n){
+  int c = 0;
+  while(curr){
+    int cn = curr->data;
+    if(cn == n)
+      c++;
+    curr = curr->next;
+  }
+  return c;
+}
+
+int getNth(struct Node* head, int index){
+  assert(head != NULL);
+  assert(0 <= index);
+  assert(index < length(head));
+  while(head && index){
+    index--;
+    head = head->next;
+  }
+  return head->data;
 }
